@@ -47,18 +47,20 @@
 </div>
 
 <?php
+
 if (isset($_POST['simpan'])) {
-    $id    = $_POST['id_barang'];
     $nama  = $_POST['nama_barang'];
     $stok  = $_POST['stok'];
     $harga = $_POST['harga'];
 
-    $sql = "INSERT INTO barang (id_barang, nama_barang, stok, harga) 
-            VALUES ('$id', '$nama', '$stok', '$harga')";
+    $sql = "INSERT INTO barang (nama_barang, stok, harga) VALUES ('$nama', '$stok', '$harga')";
     if (mysqli_query($koneksi, $sql)) {
-        echo "<script>alert('Data berhasil ditambahkan!');window.location='index.php';</script>";
+        header("Location: index.php");
+        exit;
     }
 }
+?>
+
 
 ?>
 </body>
